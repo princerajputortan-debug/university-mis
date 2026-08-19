@@ -1,0 +1,276 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+src/app/(authenticated)/admission-form/[id]/page.tsx(33,9): error TS2322: Type '{ id: number; sno: number | null; doa: Date | null; name: string | null; aadhaar: string | null; enrollmentId: number | null; batchId: number | null; programId: number | null; ... 36 more ...; updatedAt: null; } | null' is not assignable to type 'AdmissionFormData | undefined'.
+  Type 'null' is not assignable to type 'AdmissionFormData | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(198,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(199,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(200,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(201,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(202,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(203,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(204,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(205,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(206,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(207,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(208,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(209,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(210,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(211,7): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+src/app/(authenticated)/admission-form/actions.ts(212,7): error TS2322: Type '{} | undefined' is not assignable to type 'string | undefined'.
+  Type '{}' is not assignable to type 'string'.
+src/app/(authenticated)/admission-form/actions.ts(213,7): error TS2322: Type '{} | undefined' is not assignable to type 'string | undefined'.
+  Type '{}' is not assignable to type 'string'.
+src/app/(authenticated)/admission-form/actions.ts(221,21): error TS18046: 'error' is of type 'unknown'.
+src/app/(authenticated)/admission-form/actions.ts(408,21): error TS18046: 'error' is of type 'unknown'.
+src/app/(authenticated)/admission-form/FormEditor.tsx(282,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/admission-form/FormEditor.tsx(297,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/admission-form/FormEditor.tsx(304,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/admission-form/FormEditor.tsx(311,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/dashboard/BatchCollectionTable.tsx(67,7): error TS2365: Operator '+=' cannot be applied to types 'number' and '{}'.
+src/app/(authenticated)/dashboard/BatchCollectionTable.tsx(147,70): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'number'.
+src/app/(authenticated)/dashboard/BatchComparisonChart.tsx(24,26): error TS2339: Property 'label' does not exist on type '{ data?: unknown[] | undefined; }'.
+src/app/(authenticated)/dashboard/BatchComparisonChart.tsx(26,16): error TS2339: Property 'hidden' does not exist on type '{ data: { x: number; y: number; }[]; }'.
+src/app/(authenticated)/dashboard/BatchComparisonChart.tsx(31,34): error TS2339: Property 'getProps' does not exist on type '{ x: number; y: number; }'.
+src/app/(authenticated)/dashboard/BatchComparisonChart.tsx(34,33): error TS2339: Property 'borderColor' does not exist on type '{ data?: unknown[] | undefined; }'.
+src/app/(authenticated)/dashboard/BatchComparisonChart.tsx(206,21): error TS2345: Argument of type 'Record<string, unknown>' is not assignable to parameter of type '{ label: string; data: number[]; borderColor: string; backgroundColor: string; borderWidth: number; pointRadius: number; pointHoverRadius: number; tension: number; fill: boolean; }'.
+  Type 'Record<string, unknown>' is missing the following properties from type '{ label: string; data: number[]; borderColor: string; backgroundColor: string; borderWidth: number; pointRadius: number; pointHoverRadius: number; tension: number; fill: boolean; }': label, data, borderColor, backgroundColor, and 5 more.
+src/app/(authenticated)/dashboard/BatchComparisonChart.tsx(238,18): error TS18046: 'ctx.dataset' is of type 'unknown'.
+src/app/(authenticated)/dashboard/BatchComparisonChart.tsx(364,17): error TS2322: Type '{ labels: string[]; datasets: Record<string, unknown>[]; } | { labels: string[]; datasets: { label: string; data: number[]; borderColor: string; backgroundColor: string; borderWidth: number; pointRadius: number; pointHoverRadius: number; tension: number; fill: boolean; }[]; }' is not assignable to type 'ChartData<"line", number[], string>'.
+  Type '{ labels: string[]; datasets: Array<Record<string, unknown>>; }' is not assignable to type 'ChartData<"line", number[], string>'.
+    Types of property 'datasets' are incompatible.
+      Type 'Record<string, unknown>[]' is not assignable to type 'ChartDataset<"line", number[]>[]'.
+        Type 'Record<string, unknown>' is not assignable to type 'ChartDataset<"line", number[]>'.
+          Property 'data' is missing in type 'Record<string, unknown>' but required in type 'ChartDatasetProperties<"line", number[]>'.
+src/app/(authenticated)/dashboard/BatchComparisonChart.tsx(364,34): error TS2322: Type '{ responsive: boolean; maintainAspectRatio: boolean; layout: { padding: { top: number; right: number; left: number; }; }; plugins: { legend: { position: "right"; labels: { usePointStyle: boolean; boxWidth: number; color: string; }; }; tooltip: { ...; }; }; scales: { ...; }; }' is not assignable to type '_DeepPartialObject<CoreChartOptions<"line"> & ElementChartOptions<"line"> & PluginChartOptions<"line"> & DatasetChartOptions<"line"> & ScaleChartOptions<...> & LineControllerChartOptions>'.
+  The types of 'plugins.tooltip.callbacks.label' are incompatible between these types.
+    Type '(ctx: Record<string, unknown>) => string' is not assignable to type '(this: TooltipModel<"line">, tooltipItem: TooltipItem<"line">) => string | void | string[]'.
+      Types of parameters 'ctx' and 'tooltipItem' are incompatible.
+        Type 'TooltipItem<"line">' is not assignable to type 'Record<string, unknown>'.
+          Index signature for type 'string' is missing in type 'TooltipItem<"line">'.
+src/app/(authenticated)/dashboard/BifurcationProgramTable.tsx(216,22): error TS2571: Object is of type 'unknown'.
+src/app/(authenticated)/dashboard/BifurcationProgramTable.tsx(217,25): error TS2571: Object is of type 'unknown'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(321,36): error TS2322: Type '(ctx: Record<string, unknown>) => "rgba(124,127,245,1)" | "rgba(124,127,245,0.35)"' is not assignable to type 'string | _DeepPartialObject<CanvasGradient> | _DeepPartialObject<CanvasPattern> | ((ctx: ScriptableContext<"bar">, options: AnyObject) => Color | undefined) | readonly (string | ... 2 more ... | undefined)[] | undefined'.
+  Type '(ctx: Record<string, unknown>) => "rgba(124,127,245,1)" | "rgba(124,127,245,0.35)"' is not assignable to type '(ctx: ScriptableContext<"bar">, options: AnyObject) => Color | undefined'.
+    Types of parameters 'ctx' and 'ctx' are incompatible.
+      Type 'ScriptableContext<"bar">' is not assignable to type 'Record<string, unknown>'.
+        Index signature for type 'string' is missing in type 'ScriptableContext<"bar">'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(355,19): error TS2322: Type '(context: Record<string, unknown>) => any' is not assignable to type 'string | _DeepPartialObject<CanvasGradient> | _DeepPartialObject<CanvasPattern> | readonly (string | _DeepPartialObject<...> | _DeepPartialObject<...> | undefined)[] | ((ctx: ScriptableContext<...>, options: AnyObject) => Color | undefined) | undefined'.
+  Type '(context: Record<string, unknown>) => any' is not assignable to type '(ctx: ScriptableContext<"line">, options: AnyObject) => Color | undefined'.
+    Types of parameters 'context' and 'ctx' are incompatible.
+      Type 'ScriptableContext<"line">' is not assignable to type 'Record<string, unknown>'.
+        Index signature for type 'string' is missing in type 'ScriptableContext<"line">'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(356,33): error TS18046: 'context.chart' is of type 'unknown'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(523,21): error TS2322: Type '(context: Record<string, unknown>) => any' is not assignable to type 'string | _DeepPartialObject<CanvasGradient> | _DeepPartialObject<CanvasPattern> | readonly (string | _DeepPartialObject<...> | _DeepPartialObject<...> | undefined)[] | ((ctx: ScriptableContext<...>, options: AnyObject) => Color | undefined) | undefined'.
+  Type '(context: Record<string, unknown>) => any' is not assignable to type '(ctx: ScriptableContext<"line">, options: AnyObject) => Color | undefined'.
+    Types of parameters 'context' and 'ctx' are incompatible.
+      Type 'ScriptableContext<"line">' is not assignable to type 'Record<string, unknown>'.
+        Index signature for type 'string' is missing in type 'ScriptableContext<"line">'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(524,35): error TS18046: 'context.chart' is of type 'unknown'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(553,25): error TS2322: Type '(items: Record<string, unknown>) => string' is not assignable to type '(this: TooltipModel<"line">, tooltipItems: TooltipItem<"line">[]) => string | void | string[]'.
+  Types of parameters 'items' and 'tooltipItems' are incompatible.
+    Type 'TooltipItem<"line">[]' is not assignable to type 'Record<string, unknown>'.
+      Index signature for type 'string' is missing in type 'TooltipItem<"line">[]'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(553,76): error TS2571: Object is of type 'unknown'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(554,25): error TS2322: Type '(ctx: Record<string, unknown>) => string' is not assignable to type '(this: TooltipModel<"line">, tooltipItem: TooltipItem<"line">) => string | void | string[]'.
+  Types of parameters 'ctx' and 'tooltipItem' are incompatible.
+    Type 'TooltipItem<"line">' is not assignable to type 'Record<string, unknown>'.
+      Index signature for type 'string' is missing in type 'TooltipItem<"line">'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(554,70): error TS18046: 'ctx.raw' is of type 'unknown'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(584,35): error TS2532: Object is possibly 'undefined'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(680,43): error TS2322: Type '(ctx: Record<string, unknown>) => string' is not assignable to type '(this: TooltipModel<"bar">, tooltipItem: TooltipItem<"bar">) => string | void | string[]'.
+  Types of parameters 'ctx' and 'tooltipItem' are incompatible.
+    Type 'TooltipItem<"bar">' is not assignable to type 'Record<string, unknown>'.
+      Index signature for type 'string' is missing in type 'TooltipItem<"bar">'.
+src/app/(authenticated)/dashboard/DashboardClient.tsx(680,103): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'number'.
+src/app/(authenticated)/database/[model]/page.tsx(92,5): error TS2578: Unused '@ts-expect-error' directive.
+src/app/(authenticated)/database/[model]/page.tsx(94,39): error TS2345: Argument of type 'unknown[]' is not assignable to parameter of type 'Record<string, unknown>[]'.
+  Type 'unknown' is not assignable to type 'Record<string, unknown>'.
+src/app/(authenticated)/reconciliation/RecoTable.tsx(53,36): error TS18046: 'err' is of type 'unknown'.
+src/app/(authenticated)/student-fee-structure/[id]/page.tsx(34,27): error TS2322: Type '{ enrollmentNo: any; program: any; paymentOption: any; batch: any; type: any; } | null' is not assignable to type 'Record<string, unknown> | undefined'.
+  Type 'null' is not assignable to type 'Record<string, unknown> | undefined'.
+src/app/(authenticated)/student-fee-structure/actions.ts(16,35): error TS2339: Property 'enrollment' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(17,27): error TS2339: Property 'program' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(18,39): error TS2339: Property 'paymentOption' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(19,23): error TS2339: Property 'batch' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(20,21): error TS2339: Property 'type' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(361,9): error TS2322: Type '{ feeStructurePerSem: number; feeCurrentSem: number; recdTillDate: number; pending: number; grossFee: number; scholarshipCurrentSem: number; grossScholarship: number; id: unknown; enrollmentId: any; ... 5 more ...; currentSem: number; }[]' is not assignable to type 'StudentFeeDetailedRow[]'.
+  Type '{ feeStructurePerSem: number; feeCurrentSem: number; recdTillDate: number; pending: number; grossFee: number; scholarshipCurrentSem: number; grossScholarship: number; id: unknown; enrollmentId: any; ... 5 more ...; currentSem: number; }' is not assignable to type 'StudentFeeDetailedRow'.
+    Types of property 'id' are incompatible.
+      Type 'unknown' is not assignable to type 'number'.
+src/app/(authenticated)/student-fee-structure/actions.ts(370,33): error TS2339: Property 'type' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(374,35): error TS2339: Property 'batch' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(375,48): error TS2345: Argument of type '{}' is not assignable to parameter of type 'number | bigint'.
+src/app/(authenticated)/student-fee-structure/actions.ts(379,7): error TS2322: Type 'unknown' is not assignable to type 'number | null | undefined'.
+src/app/(authenticated)/student-fee-structure/actions.ts(387,37): error TS2339: Property 'enrollment' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(389,77): error TS2339: Property 'paymentOption' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(390,29): error TS2339: Property 'program' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(391,25): error TS2339: Property 'batch' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/actions.ts(447,7): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+src/app/(authenticated)/student-fee-structure/actions.ts(448,7): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+src/app/(authenticated)/student-fee-structure/actions.ts(449,7): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+src/app/(authenticated)/student-fee-structure/actions.ts(450,7): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+src/app/(authenticated)/student-fee-structure/actions.ts(451,7): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+src/app/(authenticated)/student-fee-structure/actions.ts(481,9): error TS2322: Type 'Record<string, unknown>' is not assignable to type '(Without<StudentFeeStructureCreateInput, StudentFeeStructureUncheckedCreateInput> & StudentFeeStructureUncheckedCreateInput) | (Without<...> & StudentFeeStructureCreateInput)'.
+  Type 'Record<string, unknown>' is not assignable to type 'Without<StudentFeeStructureUncheckedCreateInput, StudentFeeStructureCreateInput> & StudentFeeStructureCreateInput'.
+    Property 'enrollment' is missing in type 'Record<string, unknown>' but required in type 'StudentFeeStructureCreateInput'.
+src/app/(authenticated)/student-fee-structure/actions.ts(488,21): error TS18046: 'error' is of type 'unknown'.
+src/app/(authenticated)/student-fee-structure/actions.ts(501,21): error TS18046: 'error' is of type 'unknown'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(117,85): error TS2345: Argument of type 'null' is not assignable to parameter of type 'Record<string, unknown> | (() => Record<string, unknown>)'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(145,14): error TS2345: Argument of type '(c: string) => string' is not assignable to parameter of type '(value: unknown, index: number, array: unknown[]) => string'.
+  Types of parameters 'c' and 'value' are incompatible.
+    Type 'unknown' is not assignable to type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(151,29): error TS2345: Argument of type '{ leadSource: {}; team: {}; paymentOption: {}; bifurcation: {}; }' is not assignable to parameter of type 'CouponStudentContext'.
+  Types of property 'leadSource' are incompatible.
+    Type '{}' is not assignable to type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(170,27): error TS2345: Argument of type 'null' is not assignable to parameter of type 'SetStateAction<Record<string, unknown>>'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(220,34): error TS2345: Argument of type '{}' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(226,44): error TS2339: Property 'trim' does not exist on type '{}'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(239,18): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(240,18): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(241,18): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(242,18): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(243,18): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(244,18): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(256,52): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(267,9): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(268,9): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(269,9): error TS2322: Type 'unknown' is not assignable to type 'string | null | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(271,7): error TS2322: Type '{ leadSource: {}; team: {}; paymentOption: {}; bifurcation: {}; }' is not assignable to type 'CouponStudentContext'.
+  Types of property 'leadSource' are incompatible.
+    Type '{}' is not assignable to type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(300,52): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(337,27): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(338,27): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(339,27): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(340,27): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(341,27): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(342,27): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(343,35): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(344,35): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(345,35): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(346,35): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(347,35): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(348,35): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(384,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(395,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(409,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(423,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(438,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(452,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(470,15): error TS2322: Type 'unknown' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(471,37): error TS2345: Argument of type '{}' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(472,27): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(472,55): error TS2322: Type '{}' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(480,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(498,15): error TS2322: Type 'unknown' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(499,37): error TS2345: Argument of type '{}' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(500,27): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(500,56): error TS2322: Type '{}' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(508,15): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(526,15): error TS2322: Type 'unknown' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(527,37): error TS2345: Argument of type '{}' is not assignable to parameter of type 'string'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(528,27): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(528,56): error TS2322: Type '{}' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(534,24): error TS2322: Type '{}' is not assignable to type 'ReactNode'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(551,59): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(554,59): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(557,59): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(571,59): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(614,23): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/student-fee-structure/FeeStructureEditor.tsx(629,23): error TS2322: Type '{}' is not assignable to type 'string | number | readonly string[] | undefined'.
+src/app/(authenticated)/tracker/actions.ts(29,19): error TS2345: Argument of type '(row: Record<string, unknown>) => { id: number; name: string; }' is not assignable to parameter of type '(value: unknown, index: number, array: unknown[]) => { id: number; name: string; }'.
+  Types of parameters 'row' and 'value' are incompatible.
+    Type 'unknown' is not assignable to type 'Record<string, unknown>'.
+src/app/(authenticated)/tracker/actions.ts(52,21): error TS18046: 'e' is of type 'unknown'.
+src/app/(authenticated)/tracker/actions.ts(141,36): error TS18046: 'e' is of type 'unknown'.
+src/app/(authenticated)/upload/page.tsx(196,46): error TS18046: 'err' is of type 'unknown'.
+src/app/api/clear/[type]/route.ts(100,39): error TS18046: 'error' is of type 'unknown'.
+src/app/api/clear/student-fee/route.ts(13,39): error TS18046: 'error' is of type 'unknown'.
+src/app/api/dashboard/batch-collections/route.ts(54,30): error TS2571: Object is of type 'unknown'.
+src/app/api/dashboard/batch-collections/route.ts(55,9): error TS2571: Object is of type 'unknown'.
+src/app/api/dashboard/batch-collections/route.ts(59,7): error TS2571: Object is of type 'unknown'.
+src/app/api/dashboard/batch-collections/route.ts(59,35): error TS2571: Object is of type 'unknown'.
+src/app/api/dashboard/batch-collections/route.ts(60,7): error TS2571: Object is of type 'unknown'.
+src/app/api/dashboard/batch-collections/route.ts(66,7): error TS2698: Spread types may only be created from object types.
+src/app/api/dashboard/batch-payment-mode/route.ts(77,69): error TS2322: Type '{ batch: string; }' is not assignable to type '{ batch: string; } & Record<string, number>'.
+  Type '{ batch: string; }' is not assignable to type 'Record<string, number>'.
+    Property 'batch' is incompatible with index signature.
+      Type 'string' is not assignable to type 'number'.
+src/app/api/dashboard/batch-placement/route.ts(77,69): error TS2322: Type '{ batch: string; }' is not assignable to type '{ batch: string; } & Record<string, number>'.
+  Type '{ batch: string; }' is not assignable to type 'Record<string, number>'.
+    Property 'batch' is incompatible with index signature.
+      Type 'string' is not assignable to type 'number'.
+src/app/api/dashboard/bifurcation-batch/route.ts(79,69): error TS2322: Type '{ batch: string; }' is not assignable to type '{ batch: string; } & Record<string, number>'.
+  Type '{ batch: string; }' is not assignable to type 'Record<string, number>'.
+    Property 'batch' is incompatible with index signature.
+      Type 'string' is not assignable to type 'number'.
+src/app/api/export/[model]/route.ts(101,7): error TS2578: Unused '@ts-expect-error' directive.
+src/app/api/export/[model]/route.ts(103,41): error TS2345: Argument of type 'unknown[]' is not assignable to parameter of type 'Record<string, unknown>[]'.
+  Type 'unknown' is not assignable to type 'Record<string, unknown>'.
+src/app/api/reconciliation/resolve/route.ts(98,39): error TS18046: 'error' is of type 'unknown'.
+src/app/api/upload/[type]/route.ts(56,26): error TS2345: Argument of type '{}' is not assignable to parameter of type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(57,34): error TS2345: Argument of type '{}' is not assignable to parameter of type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(58,28): error TS2345: Argument of type '{}' is not assignable to parameter of type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(71,32): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/api/upload/[type]/route.ts(77,32): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/api/upload/[type]/route.ts(117,11): error TS2322: Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(118,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(119,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(126,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(127,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(128,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(129,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(130,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(131,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(132,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(133,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(134,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(135,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(136,11): error TS2322: Type '{} | null' is not assignable to type 'string | number | null | undefined'.
+  Type '{}' is not assignable to type 'string | number | null | undefined'.
+src/app/api/upload/[type]/route.ts(147,11): error TS2322: Type '{}' is not assignable to type 'string'.
+src/app/api/upload/[type]/route.ts(148,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(149,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(156,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(157,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(158,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(159,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(160,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(161,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(162,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(163,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(164,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(165,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(166,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(167,25): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'string'.
+src/app/api/upload/[type]/route.ts(169,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(170,11): error TS2322: Type '{} | null' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+src/app/api/upload/[type]/route.ts(180,39): error TS18046: 'error' is of type 'unknown'.
+src/app/api/upload/student-fee/route.ts(95,39): error TS18046: 'error' is of type 'unknown'.
+src/app/login/actions.ts(22,16): error TS2339: Property 'name' does not exist on type '{ id: string; email: string; role: string; password: string; }'.

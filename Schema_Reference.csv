@@ -1,0 +1,83 @@
+Model,Field,Current Type,Current Storage,Issue,Proposed Change
+,,,,,
+=== ENROLLMENT (Master - Single source of enrollmentNo) ===,,,,,"enrollmentNo lives ONLY here, all other tables reference via enrollment_id"
+Enrollment,id,Int (auto),ID,,Keep as-is
+Enrollment,enrollment,String,Unique,,Keep - single source of truth (enrollment number text)
+Enrollment,prefix,String?,Optional,,Keep
+,,,,,
+=== ADMISSION FORM ===,,,,,"Already uses relations for Program, PaymentOption, Enrollment"
+AdmissionForm,id,Int (auto),ID,,Keep
+AdmissionForm,doa,DateTime?,Optional,,Keep
+AdmissionForm,enrollmentId,Int? (FK),Relation to Enrollment,,Keep - links to Enrollment.id
+AdmissionForm,programId,Int? (FK),Relation to Program,,Keep - links to Program.id
+AdmissionForm,paymentOptionId,Int? (FK),Relation to PaymentOption,,Keep - links to PaymentOption.id
+AdmissionForm,batch,String?,Raw string,⚠ String - could be a lookup table,"Propose: Create Batch model, use batchId (FK)"
+AdmissionForm,type,String?,Raw string,⚠ String (UG/PG),Keep as string (only 2 values) OR enum
+AdmissionForm,status,String?,Raw string,⚠ String (Pursuing/Cancelled etc),"Propose: Create Status model, use statusId (FK)"
+AdmissionForm,team,String?,Raw string,⚠ String,"Propose: Create Team model, use teamId (FK)"
+AdmissionForm,bifurcation,String?,Raw string,⚠ String,"Propose: Create Bifurcation model, use bifurcationId (FK)"
+AdmissionForm,location,String?,Raw string,⚠ String,Keep as string OR create Location model
+AdmissionForm,category,String?,Raw string,⚠ String,Keep as string OR create Category model
+AdmissionForm,modeOfPayment,String?,Raw string,⚠ String,Keep as string
+AdmissionForm,placedStatus,String?,Raw string,⚠ String,Keep as string
+AdmissionForm,nationality,String?,Raw string,⚠ String,Keep as string
+AdmissionForm,totalFeeWithDiscount,Float?,Number,,Keep
+AdmissionForm,currentSem,Int?,Number,,Keep
+AdmissionForm,feeAsPerStructure,Float?,Number,,Keep
+AdmissionForm,scholarship,Float?,Number,,Keep
+AdmissionForm,semFeeAfterDisc,Float?,Number,,Keep
+AdmissionForm,totalFee,Float?,Number,,Keep
+AdmissionForm,recdFee,Float?,Number,,Keep
+AdmissionForm,pendingFee,Float?,Number,,Keep
+,,,,,
+=== PAYMENT TABLES (7 source tables + 1 consolidated) ===,,,,,"All have enrollmentNo as raw string - should reference Enrollment.id"
+ConsolidatedPayment,id,Int (auto),ID,,Keep
+ConsolidatedPayment,date,DateTime?,Optional,,Keep
+ConsolidatedPayment,transactionId,String,Unique,,Keep
+ConsolidatedPayment,enrollmentNo,String,Raw string,⚠ Should be FK to Enrollment,"Propose: Replace with enrollmentId (FK to Enrollment)"
+ConsolidatedPayment,amount,Float,Number,,Keep
+ConsolidatedPayment,mode,String?,Raw string,,Keep
+ConsolidatedPayment,batch,String?,Raw string,⚠ Duplicate of AdmissionForm.batch,"Propose: Remove (get from AdmissionForm via enrollment)"
+ConsolidatedPayment,discountedCourseFee,Float?,Number,,Keep
+ConsolidatedPayment,firstEmi,Float?,Number,,Keep
+ConsolidatedPayment,sourceName,String,Raw string,⚠ Could be enum/lookup,"Propose: Keep as string (matches source table names)"
+,,,,,
+RazorpayPayment,enrollmentNo,String,Raw string,⚠ Should be FK,Propose: Replace with enrollmentId (FK)
+JodoPayment,enrollmentNo,String,Raw string,⚠ Should be FK,Propose: Replace with enrollmentId (FK)
+EarlyPayment,enrollmentNo,String,Raw string,⚠ Should be FK,Propose: Replace with enrollmentId (FK)
+OfflinePayment,enrollmentNo,String,Raw string,⚠ Should be FK,Propose: Replace with enrollmentId (FK)
+BankPayment,enrollmentNo,String,Raw string,⚠ Should be FK,Propose: Replace with enrollmentId (FK)
+PropelldPayment,enrollmentNo,String,Raw string,⚠ Should be FK,Propose: Replace with enrollmentId (FK)
+OthersPayment,enrollmentNo,String,Raw string,⚠ Should be FK,Propose: Replace with enrollmentId (FK)
+,,,,,
+=== FEE STRUCTURE ===,,,,,"Uses raw strings for batch, paymentOption, program"
+FeeStructure,id,String (cuid),ID,,Keep
+FeeStructure,batch,String,Raw string,⚠ Should be FK,"Propose: Replace with batchId (FK)"
+FeeStructure,paymentOption,String,Raw string,⚠ Should be FK,"Propose: Replace with paymentOptionId (FK)"
+FeeStructure,program,String,Raw string,⚠ Should be FK,"Propose: Replace with programId (FK)"
+FeeStructure,semFee,Float,Number,,Keep
+,,,,,
+=== STUDENT FEE STRUCTURE ===,,,,,"Uses raw strings for enrollmentNo, paymentOption, batch, program"
+StudentFeeStructure,id,Int (auto),ID,,Keep
+StudentFeeStructure,enrollmentNo,String,Raw string (Unique),⚠ Should be FK,"Propose: Replace with enrollmentId (FK)"
+StudentFeeStructure,paymentOption,String?,Raw string,⚠ Should be FK,"Propose: Replace with paymentOptionId (FK)"
+StudentFeeStructure,batch,String?,Raw string,⚠ Should be FK,"Propose: Replace with batchId (FK)"
+StudentFeeStructure,program,String?,Raw string,⚠ Should be FK,"Propose: Replace with programId (FK)"
+StudentFeeStructure,type,String?,Raw string,,Keep (UG/PG)
+StudentFeeStructure,couponName,String?,Raw string,,Keep
+StudentFeeStructure,couponName2,String?,Raw string,,Keep
+StudentFeeStructure,currentSem,Int?,Number,,Keep
+StudentFeeStructure,sem1Fee - sem6Fee,Float?,Number,,Keep
+StudentFeeStructure,sem1Scholarship - sem6Scholarship,Float?,Number,,Keep
+StudentFeeStructure,sem1FeeAfter - sem6FeeAfter,Float?,Number,,Keep
+,,,,,
+=== LOOKUP / MASTER TABLES ===,,,,,"Already exist"
+Program,id + name,Int + String,Master table,,Keep
+PaymentOption,id + name,Int + String,Master table,,Keep
+Enrollment,id + enrollNo,Int + String,Master table,,Keep
+,,,,,
+=== NEW LOOKUP TABLES TO CREATE ===,,,,,"Proposed to eliminate string duplication"
+Batch (NEW),id + name,Int + String,New master table,,Create - replaces all batch strings
+Team (NEW),id + name,Int + String,New master table,,Create - replaces AdmissionForm.team
+Bifurcation (NEW),id + name,Int + String,New master table,,Create - replaces AdmissionForm.bifurcation
+Status (NEW),id + name,Int + String,New master table,,Create - replaces AdmissionForm.status

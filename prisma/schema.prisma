@@ -1,0 +1,431 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(cuid())
+  email    String @unique
+  password String
+  role     String @default("VIEWER") // ADMIN or VIEWER
+}
+
+model FeeStructure {
+  id              Int    @id @default(autoincrement())
+  batchId         Int
+  batch           Batch @relation(fields: [batchId], references: [id])
+  paymentOptionId Int
+  paymentOption   PaymentOption @relation(fields: [paymentOptionId], references: [id])
+  programId       Int
+  program         Program @relation(fields: [programId], references: [id])
+  semFee          Float
+
+  @@unique([batchId, paymentOptionId, programId])
+}
+
+model ConsolidatedPayment {
+  id                  Int       @id @default(autoincrement())
+  date                DateTime?
+  transactionId       String    @unique
+  enrollmentId        Int?
+  enrollment          Enrollment? @relation("ConsolidatedPaymentEnrollment", fields: [enrollmentId], references: [id])
+  amount              Float
+  mode                String?
+  batchId             Int?
+  batch               Batch? @relation("ConsolidatedPaymentBatch", fields: [batchId], references: [id])
+  discountedCourseFee Float?
+  firstEmi            Float?
+  tenure              Int?
+  sourceName          String // e.g. Razorpay, Jodo, Early, Offline, Bank, Propelld, Others
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model RazorpayPayment {
+  id                  Int       @id @default(autoincrement())
+  date                DateTime?
+  transactionId       String    @unique
+  enrollmentId        Int?
+  enrollment          Enrollment? @relation("RazorpayPaymentEnrollment", fields: [enrollmentId], references: [id])
+  amount              Float
+  mode                String?
+  batchId             Int?
+  batch               Batch? @relation("RazorpayPaymentBatch", fields: [batchId], references: [id])
+  discountedCourseFee Float?
+  firstEmi            Float?
+  tenure              Int?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model JodoPayment {
+  id                  Int       @id @default(autoincrement())
+  date                DateTime?
+  transactionId       String    @unique
+  enrollmentId        Int?
+  enrollment          Enrollment? @relation("JodoPaymentEnrollment", fields: [enrollmentId], references: [id])
+  amount              Float
+  mode                String?
+  batchId             Int?
+  batch               Batch? @relation("JodoPaymentBatch", fields: [batchId], references: [id])
+  discountedCourseFee Float?
+  firstEmi            Float?
+  tenure              Int?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model EarlyPayment {
+  id                  Int       @id @default(autoincrement())
+  date                DateTime?
+  transactionId       String    @unique
+  enrollmentId        Int?
+  enrollment          Enrollment? @relation("EarlyPaymentEnrollment", fields: [enrollmentId], references: [id])
+  amount              Float
+  mode                String?
+  batchId             Int?
+  batch               Batch? @relation("EarlyPaymentBatch", fields: [batchId], references: [id])
+  discountedCourseFee Float?
+  firstEmi            Float?
+  tenure              Int?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model OfflinePayment {
+  id                  Int       @id @default(autoincrement())
+  date                DateTime?
+  transactionId       String    @unique
+  enrollmentId        Int?
+  enrollment          Enrollment? @relation("OfflinePaymentEnrollment", fields: [enrollmentId], references: [id])
+  amount              Float
+  mode                String?
+  batchId             Int?
+  batch               Batch? @relation("OfflinePaymentBatch", fields: [batchId], references: [id])
+  discountedCourseFee Float?
+  firstEmi            Float?
+  tenure              Int?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model BankPayment {
+  id                  Int       @id @default(autoincrement())
+  date                DateTime?
+  transactionId       String    @unique
+  enrollmentId        Int?
+  enrollment          Enrollment? @relation("BankPaymentEnrollment", fields: [enrollmentId], references: [id])
+  amount              Float
+  mode                String?
+  batchId             Int?
+  batch               Batch? @relation("BankPaymentBatch", fields: [batchId], references: [id])
+  discountedCourseFee Float?
+  firstEmi            Float?
+  tenure              Int?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model PropelldPayment {
+  id                  Int       @id @default(autoincrement())
+  date                DateTime?
+  transactionId       String    @unique
+  enrollmentId        Int?
+  enrollment          Enrollment? @relation("PropelldPaymentEnrollment", fields: [enrollmentId], references: [id])
+  amount              Float
+  mode                String?
+  batchId             Int?
+  batch               Batch? @relation("PropelldPaymentBatch", fields: [batchId], references: [id])
+  discountedCourseFee Float?
+  firstEmi            Float?
+  tenure              Int?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model OthersPayment {
+  id                  Int       @id @default(autoincrement())
+  date                DateTime?
+  transactionId       String    @unique
+  enrollmentId        Int?
+  enrollment          Enrollment? @relation("OthersPaymentEnrollment", fields: [enrollmentId], references: [id])
+  amount              Float
+  mode                String?
+  batchId             Int?
+  batch               Batch? @relation("OthersPaymentBatch", fields: [batchId], references: [id])
+  discountedCourseFee Float?
+  firstEmi            Float?
+  tenure              Int?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+// Unmapped collections for overall dashboard totals only — never linked to enrollment.
+model MiscPayment {
+  id            Int       @id @default(autoincrement())
+  date          DateTime?
+  transactionId String    @unique
+  amount        Float
+  mode          String?
+  description   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Enrollment {
+  id                    Int                   @id @default(autoincrement())
+  enrollment            String                @unique
+  prefix                String?
+  forms                 AdmissionForm[]
+  studentFeeStructures  StudentFeeStructure[]
+  consolidatedPayments  ConsolidatedPayment[] @relation("ConsolidatedPaymentEnrollment")
+  razorpayPayments      RazorpayPayment[]     @relation("RazorpayPaymentEnrollment")
+  jodoPayments          JodoPayment[]         @relation("JodoPaymentEnrollment")
+  earlyPayments         EarlyPayment[]        @relation("EarlyPaymentEnrollment")
+  offlinePayments       OfflinePayment[]      @relation("OfflinePaymentEnrollment")
+  bankPayments          BankPayment[]         @relation("BankPaymentEnrollment")
+  propelldPayments      PropelldPayment[]     @relation("PropelldPaymentEnrollment")
+  othersPayments        OthersPayment[]       @relation("OthersPaymentEnrollment")
+  leadSourcePayouts     LeadSourcePayout[]
+  leadSourcePayoutSummaries LeadSourcePayoutSummary[]
+}
+
+model Program {
+  id                  Int @id
+  program             String @unique
+  forms               AdmissionForm[]
+  feeStructures       FeeStructure[]
+  studentFeeStructures StudentFeeStructure[]
+}
+
+model PaymentOption {
+  id                  Int @id
+  paymentOption       String @unique
+  forms               AdmissionForm[]
+  feeStructures       FeeStructure[]
+  studentFeeStructures StudentFeeStructure[]
+}
+
+model Batch {
+  id                    Int @id
+  batch                 String @unique
+  forms                 AdmissionForm[]
+  feeStructures         FeeStructure[]
+  studentFeeStructures  StudentFeeStructure[]
+  consolidatedPayments  ConsolidatedPayment[] @relation("ConsolidatedPaymentBatch")
+  razorpayPayments      RazorpayPayment[]     @relation("RazorpayPaymentBatch")
+  jodoPayments          JodoPayment[]         @relation("JodoPaymentBatch")
+  earlyPayments         EarlyPayment[]        @relation("EarlyPaymentBatch")
+  offlinePayments       OfflinePayment[]      @relation("OfflinePaymentBatch")
+  bankPayments          BankPayment[]         @relation("BankPaymentBatch")
+  propelldPayments      PropelldPayment[]     @relation("PropelldPaymentBatch")
+  othersPayments        OthersPayment[]       @relation("OthersPaymentBatch")
+}
+
+model AdmissionType {
+  id                    Int @id
+  type                  String @unique
+  forms                 AdmissionForm[]
+  studentFeeStructures  StudentFeeStructure[]
+}
+
+model AdmissionStatus {
+  id      Int @id
+  status  String @unique
+  forms   AdmissionForm[]
+}
+
+model PlacementStatus {
+  id            Int @id
+  placedStatus  String @unique
+  forms         AdmissionForm[]
+}
+
+model LeadSource {
+  id                      Int @id
+  lead                    String @unique
+  forms                   AdmissionForm[]
+  leadSourcePayouts       LeadSourcePayout[]
+  leadSourcePayoutSummaries LeadSourcePayoutSummary[]
+}
+
+model LeadSourcePayout {
+  id             Int        @id @default(autoincrement())
+  enrollmentId   Int
+  enrollment     Enrollment @relation(fields: [enrollmentId], references: [id])
+  leadSourceId   Int
+  leadSource     LeadSource @relation(fields: [leadSourceId], references: [id])
+  commissionPct  Float?
+  payoutAmount   Float
+  invoiceNo      String?
+  month          String?
+  status         String?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  @@index([enrollmentId])
+  @@index([leadSourceId])
+}
+
+model LeadSourcePayoutSummary {
+  id           Int        @id @default(autoincrement())
+  enrollmentId Int
+  enrollment   Enrollment @relation(fields: [enrollmentId], references: [id])
+  leadSourceId Int
+  leadSource   LeadSource @relation(fields: [leadSourceId], references: [id])
+  payoutPaid   Float      @default(0)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@unique([enrollmentId, leadSourceId])
+  @@index([leadSourceId])
+}
+
+model Counselor {
+  id        Int @id
+  counselor String @unique
+  forms     AdmissionForm[]
+}
+
+model Team {
+  id     Int @id
+  team   String @unique
+  forms  AdmissionForm[]
+}
+
+model Bifurcation {
+  id           Int @id
+  bifurcation  String @unique
+  forms        AdmissionForm[]
+}
+
+model Location {
+  id        Int @id
+  location  String @unique
+  forms     AdmissionForm[]
+}
+
+model Nationality {
+  id           Int @id
+  nationality  String @unique
+  forms        AdmissionForm[]
+}
+
+model UgcStatus {
+  id         Int @id
+  ugcStatus  String @unique
+  forms      AdmissionForm[]
+}
+
+model AdmissionForm {
+  id  Int       @id @default(autoincrement())
+  sno Int?
+  doa DateTime?
+  name String?
+  aadhaar String?
+
+  counselorId Int?
+  counselor   Counselor? @relation(fields: [counselorId], references: [id])
+
+  enrollmentId Int?        @unique
+  enrollment   Enrollment? @relation(fields: [enrollmentId], references: [id])
+
+  programId Int?
+  program   Program? @relation(fields: [programId], references: [id])
+
+  paymentOptionId Int?
+  paymentOption   PaymentOption? @relation(fields: [paymentOptionId], references: [id])
+
+  batchId Int?
+  batch   Batch? @relation(fields: [batchId], references: [id])
+
+  typeId Int?
+  type   AdmissionType? @relation(fields: [typeId], references: [id])
+
+  statusId Int?
+  status   AdmissionStatus? @relation(fields: [statusId], references: [id])
+
+  placedStatusId Int?
+  placedStatus   PlacementStatus? @relation(fields: [placedStatusId], references: [id])
+
+  leadSourceId Int?
+  leadSource   LeadSource? @relation(fields: [leadSourceId], references: [id])
+
+  teamId Int?
+  team   Team? @relation(fields: [teamId], references: [id])
+
+  bifurcationId Int?
+  bifurcation   Bifurcation? @relation(fields: [bifurcationId], references: [id])
+
+  locationId Int?
+  location   Location? @relation(fields: [locationId], references: [id])
+
+  nationalityId Int?
+  nationality   Nationality? @relation(fields: [nationalityId], references: [id])
+
+  ugcStatusId Int?
+  ugcStatus   UgcStatus? @relation(fields: [ugcStatusId], references: [id])
+
+  totalFeeWithDiscount Float?
+  currentSem           Int?
+  feeAsPerStructure    Float?
+  scholarship          Float?
+  semFeeAfterDisc      Float?
+  totalFee             Float?
+  recdFee              Float?
+  pendingFee           Float?
+  category             String?
+  modeOfPayment        String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model StudentFeeStructure {
+  id              Int @id @default(autoincrement())
+  enrollmentId    Int @unique
+  enrollment      Enrollment @relation(fields: [enrollmentId], references: [id])
+  paymentOptionId Int?
+  paymentOption   PaymentOption? @relation(fields: [paymentOptionId], references: [id])
+  batchId         Int?
+  batch           Batch? @relation(fields: [batchId], references: [id])
+  programId       Int?
+  program         Program? @relation(fields: [programId], references: [id])
+  typeId          Int?
+  type            AdmissionType? @relation(fields: [typeId], references: [id])
+  couponName      String?
+  couponName2     String?
+  couponName3     String?
+  currentSem      Int?
+
+  // Fee As per Structure
+  sem1Fee         Float?
+  sem2Fee         Float?
+  sem3Fee         Float?
+  sem4Fee         Float?
+  sem5Fee         Float?
+  sem6Fee         Float?
+
+  // Scholarship
+  sem1Scholarship Float?
+  sem2Scholarship Float?
+  sem3Scholarship Float?
+  sem4Scholarship Float?
+  sem5Scholarship Float?
+  sem6Scholarship Float?
+
+  // Fee After deduction
+  sem1FeeAfter    Float?
+  sem2FeeAfter    Float?
+  sem3FeeAfter    Float?
+  sem4FeeAfter    Float?
+  sem5FeeAfter    Float?
+  sem6FeeAfter    Float?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
